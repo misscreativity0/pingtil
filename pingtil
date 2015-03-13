@@ -1,0 +1,13 @@
+#!/bin/bash
+# Source: http://serverfault.com/a/42030
+
+UNREACHEABLE=1;
+HOST='remoteip';
+USER='remoteuser';
+while [ $UNREACHEABLE -ne "0" ]; 
+   do ping -q -c 1 $HOST &> /dev/null; 
+   UNREACHEABLE=$?; sleep 1;
+   ssh $USER@$HOST;
+done
+
+
